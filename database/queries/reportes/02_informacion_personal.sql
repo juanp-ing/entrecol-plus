@@ -1,0 +1,8 @@
+-- EntreCOL+ · database/queries/reportes/02_informacion_personal.sql
+-- Capa: Datos (consultas SQL de referencia; se usan desde reporte_repository.py)
+-- Responsabilidad: Reporte de INFORMACIÓN PERSONAL.
+--
+-- TODO:
+--   - Ficha desde v_empleado_detalle (nombre + código, dependencia, cargo, fecha DD/MM/AAAA, EPS, aporte pensión, salario)
+--   - Discriminación de novedades desde v_novedad_detalle
+--   - Usar placeholders (%s) para parámetros

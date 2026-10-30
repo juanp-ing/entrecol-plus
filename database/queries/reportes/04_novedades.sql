@@ -1,0 +1,8 @@
+-- EntreCOL+ · database/queries/reportes/04_novedades.sql
+-- Capa: Datos (consultas SQL de referencia; se usan desde reporte_repository.py)
+-- Responsabilidad: Reporte de NOVEDADES.
+--
+-- TODO:
+--   - Lista de empleados con novedades entre F1 y F2 (MM/AAAA) usando periodo_fecha
+--   - Cantidad de empleados con novedades por dependencia y por cargo en el rango
+--   - Usar placeholders (%s) para parámetros

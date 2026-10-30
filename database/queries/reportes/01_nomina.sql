@@ -1,0 +1,10 @@
+-- EntreCOL+ · database/queries/reportes/01_nomina.sql
+-- Capa: Datos (consultas SQL de referencia; se usan desde reporte_repository.py)
+-- Responsabilidad: Reporte de NÓMINA.
+--
+-- TODO:
+--   - Cantidad y lista de empleados (orden de nombres ASC/DESC)
+--   - Cantidad y lista por dependencia (dependencias ASC)
+--   - Cantidad y lista por cargo por dependencia (dependencia y cargo ASC)
+--   - Datos para torta por dependencia y barras dependencia x cargo
+--   - Usar placeholders (%s) para parámetros

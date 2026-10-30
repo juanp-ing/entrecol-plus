@@ -1,0 +1,9 @@
+-- EntreCOL+ · database/queries/reportes/03_salud_pension.sql
+-- Capa: Datos (consultas SQL de referencia; se usan desde reporte_repository.py)
+-- Responsabilidad: Reporte de SALUD Y PENSIÓN.
+--
+-- TODO:
+--   - Frecuencia por EPS y por fondo de pensión (toda la empresa)
+--   - Frecuencias por EPS por dependencia y por pensión por dependencia
+--   - Cantidad y lista por cargo y EPS / por cargo y pensión (orden de nombres ASC/DESC)
+--   - Usar placeholders (%s) para parámetros
