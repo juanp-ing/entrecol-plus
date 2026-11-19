@@ -1,0 +1,7 @@
+digraph N { rankdir=TB; dpi=200; node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10]; edge [fontname="Helvetica", fontsize=9];
+ f0 [label="0FN · Hoja de empleados de Excel\nCÓDIGO, NOMBRE DEL EMPLEADO, DEPENDENCIA, CARGO, FECHA INGRESO, EPS, ARL, PENSIÓN, SUELDO\n+ hoja de liquidación con columnas repetidas por tipo de novedad", fillcolor="#fee2e2"];
+ f1 [label="1FN · Valores atómicos\nNOMBRE → primer_apellido, segundo_apellido, nombres\nNovedad de incapacidad y de vacaciones → filas de NOVEDAD (sin grupos repetidos)\nGéneros 'A|B|C' y autores 'X/Y' → una fila por valor", fillcolor="#fef3c7"];
+ f2 [label="2FN · Sin dependencias parciales\nnomina_mensual (codigo_empleado, periodo) solo guarda lo que depende de ambos\nlos datos del empleado salen a EMPLEADO; título y año salen a PELICULA, no a pelicula_genero", fillcolor="#dbeafe"];
+ f3 [label="3FN · Sin dependencias transitivas\nnombre_dependencia, nombre_cargo, nombre_eps, nombre_arl, nombre_fondo, nombre_editorial, codigo_idioma\n→ tablas de catálogo propias referenciadas por llave foránea", fillcolor="#dcfce7"];
+ f0 -> f1 -> f2 -> f3;
+}

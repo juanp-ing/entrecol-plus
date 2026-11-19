@@ -1,0 +1,6 @@
+digraph E { rankdir=LR; dpi=200; node [shape=box, style="rounded,filled", fillcolor="#eff6ff", fontname="Helvetica", fontsize=11]; edge [fontname="Helvetica", fontsize=9];
+ a [label="1. Leer archivo\n(xlsx / dat / json)"]; b [label="2. Validar estructura\n(columnas, campos)"]; c [label="3. Validar tipos\ny limpiar valores"];
+ d [label="4. Upsert en UNA\ntransacción\n(ON DUPLICATE KEY)"]; e [label="5. Resumen: leídos,\ninsertados, actualizados,\nsin cambios, rechazados"];
+ x [label="Rechazo total\n(ROLLBACK, BD intacta)", fillcolor="#fee2e2"]; y [label="Registro rechazado\ncon su motivo", fillcolor="#fef3c7"];
+ a -> b -> c -> d -> e; b -> x [label="estructura\ninválida"]; c -> y [label="dato\ninválido"]; y -> e [style=dashed];
+}

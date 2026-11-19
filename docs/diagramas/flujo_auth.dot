@@ -1,0 +1,5 @@
+digraph F { rankdir=LR; dpi=200; node [shape=box, style="rounded,filled", fillcolor="#f0fdf4", fontname="Helvetica", fontsize=11]; edge [fontname="Helvetica", fontsize=9];
+ a [label="Usuario + contraseña\n+ captcha"]; b [label="¿Captcha\nválido?", shape=diamond, fillcolor="#fef3c7"]; c [label="bcrypt.checkpw\ncontra password_hash", shape=diamond, fillcolor="#fef3c7"];
+ d [label="Emitir JWT (HS256)\nsub, rol, exp = 60 min"]; e [label="Cada petición:\nBearer token → firma,\nexpiración y rol"]; f [label="LOGIN_FALLIDO\nen auditoria_evento", fillcolor="#fee2e2"]; g [label="LOGIN_OK\nen auditoria_evento"];
+ a -> b; b -> c [label="sí"]; b -> f [label="no"]; c -> d [label="ok"]; c -> f [label="falla"]; d -> g [style=dashed]; d -> e;
+}

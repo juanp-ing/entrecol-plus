@@ -1,0 +1,29 @@
+graph MER_Ent {
+  layout=neato; overlap=false; splines=true; dpi=200;
+  node [fontname="Helvetica", fontsize=11]; edge [fontname="Helvetica", fontsize=10, penwidth=1.2];
+  node [shape=box, style=filled, fillcolor="#dcfce7", penwidth=1.5];
+  PELICULA [pos="-6,0!"]; GENERO [pos="-6,-5!"];
+  LIBRO [pos="3,0!"]; AUTOR [pos="8.5,2.5!"]; SERIE [pos="8.5,-2.5!"]; EDITORIAL [pos="0,4!"]; IDIOMA [pos="0,-4!"];
+  node [shape=diamond, style=filled, fillcolor="#fef3c7", fontsize=9, height=0.6];
+  q1 [label="clasifica", pos="-6,-2.5!"]; q2 [label="escribe", pos="6,1.3!"]; q3 [label="pertenece", pos="6,-1.3!"];
+  q4 [label="publica", pos="1.5,2!"]; q5 [label="escrito en", pos="1.5,-2!"];
+  PELICULA -- q1 [label="M"]; q1 -- GENERO [label="N"];
+  LIBRO -- q2 [label="M"]; q2 -- AUTOR [label="N"];
+  LIBRO -- q3 [label="M"]; q3 -- SERIE [label="N"];
+  EDITORIAL -- q4 [label="1"]; q4 -- LIBRO [label="N"];
+  IDIOMA -- q5 [label="1"]; q5 -- LIBRO [label="N"];
+  node [shape=ellipse, style=filled, fillcolor="#ffffff", fontsize=9, height=0.35];
+  p1 [label=<<u>id_pelicula</u>>, pos="-8.3,1!"]; p2 [label="titulo", pos="-6,1.4!"]; p3 [label="anio", pos="-3.9,1!"];
+  PELICULA -- p1; PELICULA -- p2; PELICULA -- p3;
+  g1 [label=<<u>nombre_genero</u>>, pos="-6,-6.3!"]; GENERO -- g1;
+  l1 [label=<<u>id_libro</u>>, pos="3.3,1.6!"]; l2 [label="titulo", pos="4.8,0.6!"]; l3 [label="isbn / isbn13", pos="4.6,-0.7!"];
+  l4 [label="num_paginas", pos="3.2,-1.5!"]; l5 [label="fecha_publicacion", pos="-0.1,-0.9!"]; l6 [label="rating_promedio", pos="0.3,0.9!"];
+  l7 [label="cantidad_ratings", pos="-0.6,0!"]; l8 [label="cantidad_resenas", pos="1.7,-1.1!"];
+  LIBRO -- l1; LIBRO -- l2; LIBRO -- l3; LIBRO -- l4; LIBRO -- l5; LIBRO -- l6; LIBRO -- l7; LIBRO -- l8;
+  o1 [label="orden", pos="6,2.5!"]; q2 -- o1 [style=dashed];
+  o2 [label="numero_en_serie", pos="6.2,-2.6!"]; q3 -- o2 [style=dashed];
+  a1 [label=<<u>nombre_autor</u>>, pos="10.3,3.4!"]; AUTOR -- a1;
+  s1 [label=<<u>nombre_serie</u>>, pos="10.3,-3.4!"]; SERIE -- s1;
+  e1 [label=<<u>nombre_editorial</u>>, pos="0,5.2!"]; EDITORIAL -- e1;
+  i1 [label=<<u>codigo_idioma</u>>, pos="0,-5.2!"]; IDIOMA -- i1;
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EntreCOL+ · Iniciar sesión</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <main class="login-pagina">
+    <form id="form-login" class="login-caja vidrio" autocomplete="on">
+      <div class="marca">EntreCOL<span>+</span></div>
+      <p style="color:var(--texto-suave);margin-top:4px">Sistema de información · Nómina y entretenimiento</p>
+
+      <label for="usuario">Usuario</label>
+      <input id="usuario" name="username" required autocomplete="username" autofocus>
+
+      <label for="clave">Contraseña</label>
+      <input id="clave" name="password" type="password" required autocomplete="current-password">
+
+      <label>Captcha</label>
+      <div id="captcha-local" class="captcha-fila" hidden>
+        <img id="captcha-img" alt="Texto del captcha">
+        <button type="button" class="btn sec mini" id="captcha-nuevo" title="Otro captcha">↻</button>
+      </div>
+      <input id="captcha-texto" placeholder="Escriba el texto de la imagen" autocomplete="off" hidden>
+      <div id="captcha-google" hidden></div>
+
+      <button class="btn" style="width:100%;margin-top:18px;justify-content:center" id="entrar">Ingresar</button>
+      <div id="mensaje" class="mensaje"></div>
+    </form>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

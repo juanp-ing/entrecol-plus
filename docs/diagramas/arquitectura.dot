@@ -1,0 +1,15 @@
+digraph A { rankdir=TB; dpi=200; compound=true; nodesep=0.3; ranksep=0.8;
+ node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11, fillcolor="#ffffff"]; edge [fontname="Helvetica", fontsize=9, color="#334155"];
+ subgraph cluster_p { label="Capa de presentación (navegador)"; style="rounded,filled"; fillcolor="#eff6ff"; fontname="Helvetica-Bold";
+   login [label="login.html\nlogin.js (captcha)"]; spa [label="index.html\napp.js · reportes.js\nChart.js"]; apijs [label="api.js\n(token JWT en sessionStorage)"]; }
+ subgraph cluster_l { label="Capa lógica (Python + FastAPI)"; style="rounded,filled"; fillcolor="#f0fdf4"; fontname="Helvetica-Bold";
+   mw [label="AuditoriaMiddleware"]; auth [label="routers/auth.py\nbcrypt · JWT · captcha"]; crud [label="routers/crud.py\nentidades.py (lista blanca)"];
+   etl [label="routers/etl.py\netl/nomina · peliculas · libros\n(pandas, openpyxl)"]; rep [label="routers/reportes.py\nreportes/consultas.py (SQL)\nreportes/pdf.py (ReportLab)"];
+   db [label="db.py (PyMySQL)\nSET @app_user"]; }
+ subgraph cluster_d { label="Capa de datos (MariaDB)"; style="rounded,filled"; fillcolor="#fef2f2"; fontname="Helvetica-Bold";
+   tablas [label="25 tablas en 3FN\n(nómina, entretenimiento,\nseguridad, auditoría)", shape=cylinder]; trg [label="69 triggers AFTER\nINSERT/UPDATE/DELETE"]; usr [label="usuario entrecol_app\n(privilegios mínimos)"]; }
+ archivos [label="Nomina.xlsx\nmovies.dat\nBooks.json", shape=note, fillcolor="#fefce8"];
+ login -> apijs; spa -> apijs; apijs -> mw [label="HTTP + JSON\nAuthorization: Bearer", lhead=cluster_l];
+ mw -> auth [style=invis]; archivos -> etl [label="carga"];
+ auth -> db; crud -> db; etl -> db; rep -> db; db -> usr [label="SQL parametrizado"]; usr -> tablas; tablas -> trg [dir=both, label="auditoria_datos"];
+}
